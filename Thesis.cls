@@ -182,15 +182,15 @@
 %	defined as \examname above so you cite it as \examname
 %----------------------------------------------------------------------------------------
 
-\thesistitle{Thesis Title} % Your thesis title - this is used in the title and abstract
+\thesistitle{An Assessment of Machine Learning Approaches for Predicting the Time-Dependent Deformation of Dual Phase Steels} % Your thesis title - this is used in the title and abstract
 %-------------------------------------------------  
-\supervisor{Thesis Supervisor} % You supervisor's name - this is used in the title page
+\supervisor{Prof. Anirban Patra} % You supervisor's name - this is used in the title page
 %-------------------------------------------------   
 \examiner{} % Your examiner's name - this is not currently used anywhere in the template, cite it with \examname if you want it
 %-------------------------------------------------   
-\degree{Master of Technology/PhD} % Your degree name - this is currently used in the title page and abstract
+\degree{Dual Degree (BTech. + MTech.)} % Your degree name - this is currently used in the title page and abstract
 %-------------------------------------------------   
-\authors{authorname} % Your name - this is used in the title page and abstract
+\authors{Sarthak Khandelwal} % Your name - this is used in the title page and abstract
 %-------------------------------------------------   
 \addresses{} % Your address - this is not currently used anywhere in the template, cite it with \addressnames if you want it
 %-------------------------------------------------   
@@ -198,13 +198,13 @@
 %-------------------------------------------------   
 \keywords{} % Keywords for your thesis - this is not currently used anywhere in the template, cite it with \keywordnames if you want it
 %-------------------------------------------------   
-\university{\texorpdfstring{\href{http://www.iitk.ac.in} % Your university's URL
-                {Indian Institute of Technology Kanpur}} % Your university's name - this is currently used in the title page
-                {Indian Institute of Technology Kanpur}}
+\university{\texorpdfstring{\href{http://www.iitb.ac.in} % Your university's URL
+                {Indian Institute of Technology Bombay}} % Your university's name - this is currently used in the title page
+                {Indian Institute of Technology Bombay}}
 %-------------------------------------------------   
 \UNIVERSITY{\texorpdfstring{\href{University Web Site URL Here (include http://www.iitk.ac.in)} % Your university's URL
-                {INDIAN INSTITUTE OF TECHNOLOGY KANPUR}} % Your university's name in capitals - this is currently used in the abstract page
-                {INDIAN INSTITUTE OF TECHNOLOGY KANPUR}}
+                {INDIAN INSTITUTE OF TECHNOLOGY BOMBAY}} % Your university's name in capitals - this is currently used in the abstract page
+                {INDIAN INSTITUTE OF TECHNOLOGY BOMBAY}}
 %-------------------------------------------------                
 \department{\texorpdfstring{\href{Department or School Web Site URL Here (include http://www.iitk.ac.in/ce)} % Your department's URL
                 {Department of Civil Engineering}} % Your department's name - used in the title page and abstract
@@ -301,14 +301,121 @@
     {\centering{\huge{\textit{Abstract}}} \par}
     \bigskip
     \HRule \\[0.4cm] % Horizontal line
-		Name of the student:	 \textbf{\authornames}	\hfill Roll No: \textbf{Roll No.} \\
-		Degree for which submitted:  \textbf{M.Tech.} \hfill Department:  \textbf{Civil Engineering} \\
+		Name of the student:	 \textbf{\authornames}	\hfill Roll No: \textbf{16D110006} \\
+		Degree for which submitted:  \textbf{Dual Degree (B.Tech. + M.Tech.)} \\ Department:  \textbf{Metallurgical Engineering and Material Science} \\
 		Thesis title: \textbf{\@title}\\
 		Thesis supervisor:  \textbf{\supname}\\
 		Month and year of thesis submission: \textbf{{\large \today}\\[0.4cm] }
 		\HRule \\[1.5cm] % Horizontal line	
 	
   \end{flushleft}
+}
+
+%=============================================================================
+% a4paper: thesis must be printed on a4 size paper. 
+% 12pt:    font size must be 12 pt
+%
+% As iitbthesis class is a simple extension of report class, we simply
+% pass default options to report class.
+% =============================================================================
+% who is advisor?
+\def\@advisorname{None}
+\newcommand{\setguide}[1]{\def\@advisorname{#1}}
+
+% and coadvisor? (initialized to empty)
+\global\let\@coadvisorname\@empty
+\newcommand{\setcoguide}[1]{\def\@coadvisorname{#1}}
+\let\coguide\setcoguide %
+\newcommand{\show@coguide}{\@coadvisorname}
+
+% and exadvisor? (initialized to empty)
+\global\let\@exadvisorname\@empty
+\newcommand{\setexguide}[1]{\def\@exadvisorname{#1}}
+\let\exguide\setexguide %
+\newcommand{\show@exguide}{\@exadvisorname}
+
+%=============================================================================
+% TITLE PAGE
+%   - define \title{} \author{} \date{}
+%   - The default degree is ``Unknown Degree''
+%     Degree can be changed using the command \iitbdegree{}
+%   - The default department is ``Unknown Department''
+%     The department can be changed using the command \department{}
+%   - The default document type is ``A preliminary report''
+%     The document type can be changed using the command \reporttype{}
+%     There are some short-cuts for \reporttype{}:
+%      * for a PhD thesis, specify \thesis
+%      * for a M.Tech./M.Phil./M.Des./M.S. dissertation, specify \dissertation
+%      * for a DIIT/B.Tech./M.Sc.project report, specify \project
+%      * for a preliminary report, specify \prelim
+%   - once the above are defined, use \maketitle to generate the titlepage
+%=============================================================================
+\newcommand\@thesistitlemedskip{0.25in}
+\newcommand\@thesistitlebigskip{0.6in}
+\newcommand{\rollnum}[1]{\gdef\@rollnum{#1}}
+\newcommand{\iitbdegree}[1]{\gdef\@iitbdegree{#1}}
+\newcommand{\department}[1]{\gdef\@department{#1}}
+\newcommand{\reporttype}[1]{\gdef\@doctype{#1}}
+\newcommand{\approvaltype}[1]{\gdef\@approvaltype{#1}}
+
+\newcommand{\thesis}{\reporttype{}\approvaltype{Thesis}}
+\newcommand{\dissertation}{\reporttype{dissertation}\approvaltype{Dissertation}}
+\newcommand{\project}{\reporttype{project report}\approvaltype{Report}}
+\newcommand{\prelim}{\reporttype{preliminary report}\approvaltype{Report}}
+
+\gdef\@rollnum{Unknown 00000000}    % Default is Unknown 00000000
+\gdef\@iitbdegree{Unknown Degree}    % Default is Unknown Degree
+\gdef\@doctype{preliminary report}  % Default is a preliminary report
+\gdef\@department{Metallurgical Engineering and Material Science} % Default is Unknown
+
+\renewcommand{\maketitle}{%
+  \begin{titlepage}
+%-----------------------------------------------------------------------------
+% -- The thesis office doesn't like thanks on title page.  Put it in
+% -- the acknowledgments.  This is here so you don't have to change
+% -- your titlepage when converting from report style. -> from Purdue, but I
+%        left it here since it seems compatible with UW-Madison, Eric -
+%    Amey - I also left it here as IITB does not say anything about it.
+%-----------------------------------------------------------------------------
+    \def\thanks##1{\typeout{Warning: `thanks' deleted from thesis titlepage.}}
+    \let\footnotesize\small \let\footnoterule\relax \setcounter{page}{1}
+    \vspace*{0.1in}
+    \begin{center}
+      \mbox{}\\
+      {\bf\expandafter\uppercase\expandafter{\LARGE\@title}} \\[\@thesistitlebigskip]
+      {\large  \@doctype\ Submitted in partial fulfillment of  the requirements} \\
+      {\large  of the degree of}\\[\@thesistitlemedskip]
+      {\large \@iitbdegree} \\[\@thesistitlemedskip]
+      {\large by} \\[\@thesistitlemedskip]
+      {\large \bf \@author} \\
+      {\large \bf (Roll No. \@rollnum)} \\[\@thesistitlebigskip]
+      {\large Supervisors: }  \\
+      {\large \bf \@advisorname} \\
+      \ifx\@coadvisorname\@empty
+         \ifx\@exadvisorname\@empty
+             \mbox{}\\[\@thesistitlebigskip]
+	 \else
+	     {\large and } \\
+	     {\large \bf \@exadvisorname} \\[\@thesistitlemedskip]
+	 \fi %
+      \else
+          \ifx\@exadvisorname\@empty
+	      {\large  } \\
+	      {\large \bf \@coadvisorname} \\[\@thesistitlemedskip]
+	  \else
+	      {\large \bf \@coadvisorname} \\%[\@thesistitlemedskip]
+	      {\large and } \\
+	      {\large \bf \@exadvisorname} \\[\@thesistitlemedskip]
+	  \fi %
+      \fi %
+      \includegraphics[width=0.2\textwidth]{iitblogo.png} \\[\@thesistitlemedskip]
+      {\large \uppercase{\@department}} \\%[\@thesistitlemedskip]
+      {\large INDIAN INSTITUTE OF TECHNOLOGY BOMBAY}\\%[\@thesistitlemedskip]
+      {\large \@date}
+    \end{center}
+  \end{titlepage}
+  \setcounter{footnote}{0}
+  \setcounter{page}{1} %title page is NOT counted
 }
 %----------------------------------------------------------------------------------------
 {

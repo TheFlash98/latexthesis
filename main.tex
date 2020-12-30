@@ -5,18 +5,21 @@
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{amsmath}
-
+%\usepackage{subfig}
+%\usepackage{subcaption}
+\usepackage{url}
 % prints author names as small caps
 
 
-%\usepackage{subcaption} %incompatible with subfig
+\usepackage{subcaption} %incompatible with subfig
 \graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
-\usepackage[square, numbers]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' v
+\usepackage[square, numbers, sorting=none]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' v
 
 \hypersetup{urlcolor=black, colorlinks=true} % Colors hyperlinks in blue - change to black if annoyingv`	
 \title{\ttitle} % Defines the thesis title - don't touch this
 
 \begin{document}
+\include{prelude}
 \makeatletter
 \renewcommand*{\NAT@nmfmt}[1]{\textsc{#1}}
 \makeatother
@@ -47,33 +50,33 @@
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
 
-\begin{titlepage}
-\begin{center}
+% \begin{titlepage}
+% \begin{center}
 
-\HRule \\[0.4cm] % Horizontal line
-{\huge \bfseries \ttitle}\\[0.4cm] % Thesis title
-\HRule \\[1.5cm] % Horizontal line
+% \HRule \\[0.4cm] % Horizontal line
+% {\huge \bfseries \ttitle}\\[0.4cm] % Thesis title
+% \HRule \\[1.5cm] % Horizontal line
  
-\large \textit{A thesis submitted in fulfilment of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
-\textit{by}\\[0.4cm]
+% \large \textit{A thesis submitted in nope of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
+% \textit{by}\\[0.4cm]
 
-\href{http://home.iitk.ac.in/~saiwal}{\authornames}
+% \href{http://home.iitk.ac.in/~saiwal}{\authornames}
 
-\vfill
-\graphicspath{ {./Figures/} }
-\begin{figure}[hb]
-  \centering
-  \includegraphics[width=0.4\linewidth]{Pictures/redlogo.jpg}
-\end{figure}
+% \vfill
+% \graphicspath{ {./Figures/} }
+% \begin{figure}[hb]
+%   \centering
+%   \includegraphics[width=0.4\linewidth]{Pictures/redlogo.jpg}
+% \end{figure}
 
-\DEPTNAME\\ % Research group name and department name
-\textsc{ \UNIVNAME}\\[1.5cm] % University name
-\large \today\\[2cm] % Date
+% \DEPTNAME\\ % Research group name and department name
+% \textsc{ \UNIVNAME}\\[1.5cm] % University name
+% \large \today\\[2cm] % Date
 
 
-\end{center}
+% \end{center}
 
-\end{titlepage}
+% \end{titlepage}
 
 %----------------------------------------------------------------------------------------
 %	DECLARATION PAGE
@@ -92,9 +95,8 @@ It is certified that the work contained in this thesis entitled ''\ttitle'' by '
 \end{minipage}
 \begin{minipage}{0.65\textwidth}
 	{\begin{center} \large
-		\supname
 		\begin{center}
-			{Professor\\ 
+			{\supname \\
 			\normalsize{\deptname\\
 			\univname}}
 		\end{center}
@@ -112,7 +114,7 @@ It is certified that the work contained in this thesis entitled ''\ttitle'' by '
 
 \abstract{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
 
-Enter Abstract Content here...
+Surrogate machine learning models have been proposed for modelling the plastic deformation behaviour of dual phase steels. The behaviour is first simulated using a J2 plasticity model whose results form the basis for model development. A simple artificial neural network model is applied to make the predictions for vonmises stress, triaxialty and effective strain values. We further test the performance for a long short term memory based recurrent neural network and compare the results obtained by the two models. For both the approaches, multiple models were trained and the best one was used to make the predictions. There is a significant increase in the accuracy with the latter model which has been shown and discussed in detail.  
 }
 
 \clearpage % Start a new page
@@ -121,14 +123,14 @@ Enter Abstract Content here...
 %	ACKNOWLEDGEMENTS
 %----------------------------------------------------------------------------------------
 
-\setstretch{1.3} % Reset the line-spacing to 1.3 for body text (if it has changed)
+% \setstretch{1.3} % Reset the line-spacing to 1.3 for body text (if it has changed)
 
-\acknowledgements{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
+% \acknowledgements{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
 
-I would extend my sincerest gratitude...
+% I would extend my sincerest gratitude...
 
-}
-\clearpage % Start a new page
+% }
+% \clearpage % Start a new page
 
 %----------------------------------------------------------------------------------------
 %	LIST OF CONTENTS/FIGURES/TABLES PAGES
@@ -149,19 +151,19 @@ I would extend my sincerest gratitude...
 %	ABBREVIATIONS
 %----------------------------------------------------------------------------------------
 
-\clearpage % Start a new page
+% \clearpage % Start a new page
 
-\setstretch{1.5} % Set the line spacing to 1.5, this makes the following tables easier to read
+% \setstretch{1.5} % Set the line spacing to 1.5, this makes the following tables easier to read
 
-\lhead{\emph{Abbreviations}} % Set the left side page header to "Abbreviations"
-\listofsymbols{ll} % Include a list of Abbreviations (a table of two columns)
-{
-\textbf{FEA} & \textbf{F}inite \textbf{E}lement \textbf{A}nalysis \\
-\textbf{FEM} & \textbf{F}inite \textbf{E}lement \textbf{M}ethod \\
-\textbf{LVDT} & \textbf{L}inear \textbf{V}ariable \textbf{D}ifferential \textbf{T}ransformer \\
-\textbf{RC} & \textbf{R}einforced \textbf{C}oncrete
-%\textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
-}
+% \lhead{\emph{Abbreviations}} % Set the left side page header to "Abbreviations"
+% \listofsymbols{ll} % Include a list of Abbreviations (a table of two columns)
+% {
+% \textbf{FEA} & \textbf{F}inite \textbf{E}lement \textbf{A}nalysis \\
+% \textbf{FEM} & \textbf{F}inite \textbf{E}lement \textbf{M}ethod \\
+% \textbf{LVDT} & \textbf{L}inear \textbf{V}ariable \textbf{D}ifferential \textbf{T}ransformer \\
+% \textbf{RC} & \textbf{R}einforced \textbf{C}oncrete
+% %\textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
+% }
 
 %----------------------------------------------------------------------------------------
 %	PHYSICAL CONSTANTS/OTHER DEFINITIONS
@@ -181,30 +183,30 @@ I would extend my sincerest gratitude...
 %	SYMBOLS
 %----------------------------------------------------------------------------------------
 
-\clearpage % Start a new page
+% \clearpage % Start a new page
 
-\lhead{\emph{Symbols}} % Set the left side page header to "Symbols"
+% \lhead{\emph{Symbols}} % Set the left side page header to "Symbols"
 
-\listofnomenclature{lll} % Include a list of Symbols (a two column table)
-{
-$D^{el}$ & elasticity tensor \\
-$\sigma$ & stress tensor \\
-$ \varepsilon $ & strain tensor \\
-% Symbol & Name & Unit \\
+% \listofnomenclature{lll} % Include a list of Symbols (a two column table)
+% {
+% $D^{el}$ & elasticity tensor \\
+% $\sigma$ & stress tensor \\
+% $ \varepsilon $ & strain tensor \\
+% % Symbol & Name & Unit \\
 
-}
+% }
 
 %----------------------------------------------------------------------------------------
 %	DEDICATION
 %----------------------------------------------------------------------------------------
-%
-\setstretch{1.3} % Return the line spacing back to 1.3
-%
-\pagestyle{empty} % Page style needs to be empty for this page
-%
-\dedicatory{For/Dedicated to/To my\ldots} % Dedication text
-%
-\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+% %
+% \setstretch{1.3} % Return the line spacing back to 1.3
+% %
+% \pagestyle{empty} % Page style needs to be empty for this page
+% %
+% \dedicatory{For/Dedicated to/To my\ldots} % Dedication text
+% %
+% \addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - CHAPTERS
@@ -218,7 +220,10 @@ $ \varepsilon $ & strain tensor \\
 % Uncomment the lines as you write the chapters
 
 \input{Chapters/Chapter1}
-%\input{Chapters/Chapter2} 
+\input{Chapters/Chapter2} 
+\input{Chapters/Chapter3}
+\input{Chapters/Chapter4}
+\input{Chapters/Chapter5}
 %\input{Chapters/Chapter3}
 %\input{Chapters/Chapter4} 
 %\input{Chapters/Chapter5} 
@@ -236,13 +241,13 @@ $ \varepsilon $ & strain tensor \\
 % Include the appendices of the thesis as separate files from the Appendices folder
 % Uncomment the lines as you write the Appendices
 
-\input{Appendices/AppendixA}
-%\input{Appendices/AppendixB}
-%\input{Appendices/AppendixC}
+% \input{Appendices/AppendixA}
+% %\input{Appendices/AppendixB}
+% %\input{Appendices/AppendixC}
 
-\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+% \addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
 
-\backmatter
+% \backmatter
 
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
@@ -252,7 +257,7 @@ $ \varepsilon $ & strain tensor \\
 
 \lhead{\emph{Bibliography}} % Change the page header to say "Bibliography"
 
-\bibliographystyle{apalike} % Use the "custom" BibTeX style for formatting the Bibliography
+\bibliographystyle{ieeetr} % Use the "custom" BibTeX style for formatting the Bibliography
 
 \bibliography{Bibliography} % The references (bibliography) information are stored in the file named "Bibliography.bib"
 

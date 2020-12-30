@@ -1,0 +1,20 @@
+% Chapter Template
+
+\chapter{Conclusion} % Main chapter title
+
+\label{Chapter5} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
+
+\lhead{Chapter 5. \emph{Conclusion}} % Change X to a consecutive number; this is for the header on each page - perhaps a shortened title
+
+%----------------------------------------------------------------------------------------
+%	SECTION 1
+%----------------------------------------------------------------------------------------
+
+\section{Summary}
+
+We have applied two machine learning models, namely, artificial neural networks (ANNs) and long short term memory (LSTM), a type of recurrent neural network (RNN) to predict the deformation of DP steel microstructures. J2 plasticity simulations are run for the 2D dual-phase ferrite-martensite microstructures. The results of these simulations are used as the ground truth for the machine learning model training. We start with employing an ANN to make predictions for effective strain, von Mises effective stress and triaxiality. After a systematic parametric study for the hyper parameters of the model, the accuracy of the ANN models was found to be very low. ANNs do not deal with temporal or spatial information. The higher errors may also be a result of discretizing our dataset into $0.01$ strain steps. 
+
+As plasticity is a history-dependent process, RNNs are presumably a better option. LSTMs were applied to deal with the temporal nature of our data. The results obtained from LSTM model have an error value 3 order less than that of the ANN. The model makes predictions at $0.01$ strain intervals. Our method does not need to perform numerical iterations per strain step, otherwise needed by the conventional methods. The main strength of the LSTM model over ANN, is the reduction in computational time. The training time is 7 to 8 times less than that for ANN and predictions only take a few seconds. This ML-surrogate model trained and tested on simulated data is highly accurate and orders of magnitude faster than conventional micromechanical models. 
+
+\section{Future Work}
+The models developed has been trained and tested for microstructure with defined phase fractions and fixed boundary conditions. The framework can be extended to predict the evolution of series of other mircomechanical properties. Furthermore, more microstructures can be generated with various macroscopic conditions and microstructure evolution for a more general case can be predicted. 
